@@ -5,7 +5,7 @@ const FeedbackData =
             text: 'asdf asfas lkj asd lkasdfjll. ' +
                 'asdfa lksadf asdkj ' },
         {id:2,
-            rating: 9,
+            rating: 8,
             text: 'asdf asfas lkj asd lkasdfjll. ' +
                 'asdfa lksadf asdkj ' },
         {id:3,
