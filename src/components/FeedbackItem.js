@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from "prop-types";
 import Card from "./shared/Card";
 import {FaTimes} from "react-icons/fa";
 
 const FeedbackItem = ({item, handleDelete}) => {
-    const [rating, setRating] = useState(7)
-    const [text, setText] = useState('це приклад відгуку')
+    // const [rating, setRating] = useState(7)
+    // const [text, setText] = useState('це приклад відгуку')
 
     return (
         <Card>
