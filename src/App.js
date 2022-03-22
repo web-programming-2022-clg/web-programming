@@ -20,13 +20,6 @@ function App(){
     setFeedback([newFeedback, ...feedback])
   }
 
-  const deleteFeedback = (id) => {
-    if(window.confirm('Ви впевнені, що хочете видалити цей важливий відгук??')
-    ){
-      setFeedback(feedback.filter(msg => msg.id !== id))
-    }
-
-  }
     return <FeedBackProvider>
       <Router>
       <Header />
@@ -38,7 +31,7 @@ function App(){
     <>
       <FeedbackForm handleAdd={addFeedback}/>
       <FeedbackStats />
-      <FeedbackList handleDelete={deleteFeedback} />
+      <FeedbackList />
     </>
   } />
     <Route path='/about' element={<AboutPage /> } />

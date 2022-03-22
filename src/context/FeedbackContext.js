@@ -10,8 +10,17 @@ export const FeedBackProvider = ({children}) => {
         rating: 10,
     }])
 
+    const deleteFeedback = (id) => {
+        if(window.confirm('Ви впевнені, що хочете видалити цей важливий відгук??')
+        ){
+            setFeedback(feedback.filter(msg => msg.id !== id))
+        }
+
+    }
+
     return <FeedbackContext.Provider value={{
-        feedback
+        feedback,
+        deleteFeedback,
     }}>
         {children}
     </FeedbackContext.Provider>
