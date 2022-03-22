@@ -7,7 +7,6 @@ import FeedbackContext from "../context/FeedbackContext";
 const FeedbackList = ({ handleDelete}) => {
     const {feedback} = useContext(FeedbackContext)
 
-    console.log(feedback)
     if(!feedback || feedback.length === 0) {
         return <p>Ще немає відгуків</p>
     }
