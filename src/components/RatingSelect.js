@@ -57,7 +57,7 @@ const RatingSelect = ({select}) => {
                        onChange={handleChange}
                        checked={selected === 5}
                 />
-                <label htmlFor="num5">1</label>
+                <label htmlFor="num5">5</label>
             </li>
             <li>
                 <input type="radio"
