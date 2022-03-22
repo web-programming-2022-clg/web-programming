@@ -1,3 +1,4 @@
+import {v4 as uuidv4} from 'uuid'
 import {createContext, useState} from "react";
 
 const FeedbackContext = createContext()
@@ -10,6 +11,11 @@ export const FeedBackProvider = ({children}) => {
         rating: 10,
     }])
 
+    const addFeedback = (newFeedback) => {
+        newFeedback.id = uuidv4()
+        setFeedback([newFeedback, ...feedback])
+    }
+
     const deleteFeedback = (id) => {
         if(window.confirm('Ви впевнені, що хочете видалити цей важливий відгук??')
         ){
@@ -21,6 +27,7 @@ export const FeedBackProvider = ({children}) => {
     return <FeedbackContext.Provider value={{
         feedback,
         deleteFeedback,
+        addFeedback,
     }}>
         {children}
     </FeedbackContext.Provider>
