@@ -1,23 +1,30 @@
 import {v4 as uuidv4} from 'uuid'
-import {createContext, useState} from "react";
+import {createContext, useEffect, useState} from "react";
+import getData from "../data/Utils";
 
 const FeedbackContext = createContext()
 
+const jsonUrl = 'https://gist.githubusercontent.com/Volodymyr-Kovdrysh/368f472d3de21193171cdce3498939d5/raw/f3af065a83e7a8660a81f1e7f6f960e287bcd855/data.json'
+
 export const FeedBackProvider = ({children}) => {
 
-    const [feedback, setFeedback] = useState([{
-        id: 1,
-        text: 'Text from context 1',
-        rating: 10,
-    }, {
-        id: 2,
-        text: 'Text from context 2',
-        rating: 9,
-    }, {
-        id: 3,
-        text: 'Text from context 3',
-        rating: 8,
-    }])
+    const [feedback, setFeedback] = useState([])
+
+    useEffect(()=>{
+
+        getData(jsonUrl).then(data => {
+            setFeedback(data)
+        })
+
+        // fetch(jsonUrl).then(response => {
+        //          response.json().then(data => {
+        //             console.log('response data', data)
+        //              setFeedback(data)
+        //         });
+        //
+        //     })
+
+    },[])
 
     const [feedbackEdit, setFeedbackEdit] = useState({
         item: {},
