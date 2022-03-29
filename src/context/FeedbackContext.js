@@ -1,23 +1,35 @@
 import {v4 as uuidv4} from 'uuid'
-import {createContext, useState} from "react";
+import {createContext, useEffect, useState} from "react";
+import  {getDataFromGoogleApp} from "../data/Utils";
 
 const FeedbackContext = createContext()
 
+// const jsonUrl = 'https://gist.githubusercontent.com/Volodymyr-Kovdrysh/368f472d3de21193171cdce3498939d5/raw/f3af065a83e7a8660a81f1e7f6f960e287bcd855/data.json'
+const googleURL = 'https://script.google.com/macros/s/AKfycbxSDs6g2iirqf4j6sXBmPuy1jg5TRk7xQ-iMvW75NoLCtXZRL0raKLzX71IuGi15NkJ9A/exec'
+
 export const FeedBackProvider = ({children}) => {
 
-    const [feedback, setFeedback] = useState([{
-        id: 1,
-        text: 'Text from context 1',
-        rating: 10,
-    }, {
-        id: 2,
-        text: 'Text from context 2',
-        rating: 9,
-    }, {
-        id: 3,
-        text: 'Text from context 3',
-        rating: 8,
-    }])
+    const [feedback, setFeedback] = useState([])
+
+    useEffect(()=>{
+
+        // getData(jsonUrl).then(data => {
+        //     setFeedback(data)
+        // })
+        getDataFromGoogleApp(`${googleURL}?action=GET`).then(data => {
+            // console.log('from google', data.feedback)
+            setFeedback(data.feedback)
+        })
+
+        // fetch(jsonUrl).then(response => {
+        //          response.json().then(data => {
+        //             console.log('response data', data)
+        //              setFeedback(data)
+        //         });
+        //
+        //     })
+
+    },[])
 
     const [feedbackEdit, setFeedbackEdit] = useState({
         item: {},
@@ -26,13 +38,23 @@ export const FeedBackProvider = ({children}) => {
 
     const addFeedback = (newFeedback) => {
         newFeedback.id = uuidv4()
-        setFeedback([newFeedback, ...feedback])
+        // setFeedback([newFeedback, ...feedback])
+
+        getDataFromGoogleApp(`${googleURL}?action=POST&id=${newFeedback.id}&rating=${newFeedback.rating}&text=${newFeedback.text}`).then(data => {
+
+            setFeedback(data.feedback)
+        })
+
     }
 
     const deleteFeedback = (id) => {
         if(window.confirm('Ви впевнені, що хочете видалити цей важливий відгук??')
         ){
-            setFeedback(feedback.filter(msg => msg.id !== id))
+            // setFeedback(feedback.filter(msg => msg.id !== id))
+            getDataFromGoogleApp(`${googleURL}?action=DELETE&id=${id}`).then(data => {
+
+                setFeedback(data.feedback)
+            })
         }
 
     }
