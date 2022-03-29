@@ -5,7 +5,7 @@ import  {getDataFromGoogleApp} from "../data/Utils";
 const FeedbackContext = createContext()
 
 // const jsonUrl = 'https://gist.githubusercontent.com/Volodymyr-Kovdrysh/368f472d3de21193171cdce3498939d5/raw/f3af065a83e7a8660a81f1e7f6f960e287bcd855/data.json'
-const googleURL = 'https://script.google.com/macros/s/AKfycbyFHN96YvS7zWTKLT_mNVpgiJUYGcLeL9p2MN2VeOO5acjN-mEBjf6lelbf76Z5fF2Uhw/exec'
+const googleURL = 'https://script.google.com/macros/s/AKfycbxSDs6g2iirqf4j6sXBmPuy1jg5TRk7xQ-iMvW75NoLCtXZRL0raKLzX71IuGi15NkJ9A/exec'
 
 export const FeedBackProvider = ({children}) => {
 
@@ -50,7 +50,11 @@ export const FeedBackProvider = ({children}) => {
     const deleteFeedback = (id) => {
         if(window.confirm('Ви впевнені, що хочете видалити цей важливий відгук??')
         ){
-            setFeedback(feedback.filter(msg => msg.id !== id))
+            // setFeedback(feedback.filter(msg => msg.id !== id))
+            getDataFromGoogleApp(`${googleURL}?action=DELETE&id=${id}`).then(data => {
+
+                setFeedback(data.feedback)
+            })
         }
 
     }
