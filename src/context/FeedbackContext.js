@@ -1,10 +1,11 @@
 import {v4 as uuidv4} from 'uuid'
 import {createContext, useEffect, useState} from "react";
-import getData from "../data/Utils";
+import  {getDataFromGoogleApp} from "../data/Utils";
 
 const FeedbackContext = createContext()
 
-const jsonUrl = 'https://gist.githubusercontent.com/Volodymyr-Kovdrysh/368f472d3de21193171cdce3498939d5/raw/f3af065a83e7a8660a81f1e7f6f960e287bcd855/data.json'
+// const jsonUrl = 'https://gist.githubusercontent.com/Volodymyr-Kovdrysh/368f472d3de21193171cdce3498939d5/raw/f3af065a83e7a8660a81f1e7f6f960e287bcd855/data.json'
+const googleURL = 'https://script.google.com/macros/s/AKfycbyVK9HuT9pgElv0Lx1fs_W8b9_IG0-38eBRm2T40k2OAbmMagck-f-JiUCT_wYa1dQvvA/exec?action=GET'
 
 export const FeedBackProvider = ({children}) => {
 
@@ -12,8 +13,12 @@ export const FeedBackProvider = ({children}) => {
 
     useEffect(()=>{
 
-        getData(jsonUrl).then(data => {
-            setFeedback(data)
+        // getData(jsonUrl).then(data => {
+        //     setFeedback(data)
+        // })
+        getDataFromGoogleApp(googleURL).then(data => {
+            // console.log('from google', data.feedback)
+            setFeedback(data.feedback)
         })
 
         // fetch(jsonUrl).then(response => {
