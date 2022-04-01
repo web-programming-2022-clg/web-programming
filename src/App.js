@@ -8,8 +8,8 @@ const App = () => {
         <Router>
             <nav>
 
-                <NavLink to={'/'} activeClassName={'active'}>Home </NavLink>
-                <NavLink to={'/feedbackapp'} activeClassName={'active'}>Опитувальник </NavLink>
+                <NavLink to={'/'} >Home </NavLink>
+                <NavLink to={'/feedbackapp'} >Опитувальник </NavLink>
 
 
             </nav>

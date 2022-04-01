@@ -8,23 +8,23 @@ const FeedbackContext = createContext()
 const googleURL = 'https://script.google.com/macros/s/AKfycbxqTOww_l7e6jElel2ANi3Mzzpvmjy56fS9PsUzSdZrcqvo-GqVVbRncdAuLGc-5NF4qA/exec'
 
 export const FeedBackProvider = ({children}) => {
-
+    const [isLoading, setIsLoading] = useState(true)
     const [feedback, setFeedback] = useState([])
+    const [feedbackEdit, setFeedbackEdit] = useState({
+        item: {},
+        edit: false,
+    })
 
     useEffect(()=>{
 
 
         getData(`${googleURL}?action=GET`).then(data => {
             setFeedback(data.feedback.reverse())
+            setIsLoading(false)
         })
 
 
     },[])
-
-    const [feedbackEdit, setFeedbackEdit] = useState({
-        item: {},
-        edit: false,
-    })
 
     const addFeedback = (newFeedback) => {
         newFeedback.id = uuidv4()
@@ -63,6 +63,7 @@ export const FeedBackProvider = ({children}) => {
     }
 
     return <FeedbackContext.Provider value={{
+        isLoading,
         feedback,
         feedbackEdit,
         deleteFeedback,
