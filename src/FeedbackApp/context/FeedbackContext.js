@@ -27,22 +27,26 @@ export const FeedBackProvider = ({children}) => {
     },[])
 
     const addFeedback = (newFeedback) => {
+        setIsLoading(true)
         newFeedback.id = uuidv4()
 
         getData(`${googleURL}?action=POST&id=${newFeedback.id}&rating=${newFeedback.rating}&text=${newFeedback.text}`).then(data => {
 
             setFeedback(data.feedback.reverse())
+            setIsLoading(false)
         })
 
     }
 
     const deleteFeedback = (id) => {
+        setIsLoading(true)
         if(window.confirm('Ви впевнені, що хочете видалити цей важливий відгук??')
         ){
             // setFeedback(feedback.filter(msg => msg.id !== id))
             getData(`${googleURL}?action=DELETE&id=${id}`).then(data => {
 
                 setFeedback(data.feedback.reverse())
+                setIsLoading(false)
             })
         }
 
@@ -50,11 +54,13 @@ export const FeedBackProvider = ({children}) => {
 
     // update feedback item
     const updateFeedback = (id, updItem) => {
+        setIsLoading(true)
        // setFeedback(feedback.map(item => item.id === id ? {...item, ...updItem} : item))
 
         getData(`${googleURL}?action=PUT&id=${id}&rating=${updItem.rating}&text=${updItem.text}`).then(data => {
 
             setFeedback(data.feedback.reverse())
+            setIsLoading(true)
         })
     }
 

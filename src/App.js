@@ -7,13 +7,10 @@ import Spinner from "./FeedbackApp/components/shared/Spinner";
 const App = () => {
     return (
         <Router>
-            <nav>
-
-                <NavLink to={'/'} >Головна </NavLink>
-                <NavLink to={'/feedbackapp'} >Зворотній зв'язок </NavLink>
-
-
-            </nav>
+            <div className="navbar bg-neutral text-neutral-content">
+                <NavLink to={'/'} className="btn btn-ghost normal-case text-xl">Головна</NavLink>
+                <NavLink to={'/feedbackapp'} className="btn btn-ghost normal-case text-xl" >Зворотній зв'язок </NavLink>
+            </div>
 
             <Routes>
                 <Route path='/' element={<>
