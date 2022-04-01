@@ -16,7 +16,12 @@ const App = () => {
             </nav>
 
             <Routes>
-                <Route path='/' element={<Spinner /> } />
+                <Route path='/' element={<>
+                    <h1 className="text-3xl font-bold underline">
+                        Hello world!
+                    </h1>
+                    <Spinner />
+                </> } />
                 <Route path='/feedbackapp/*' element={<FeedbackApp /> } />
             </Routes>
 
