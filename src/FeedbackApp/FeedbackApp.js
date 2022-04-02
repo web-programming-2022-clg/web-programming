@@ -17,7 +17,7 @@ function FeedbackApp(){
     return <FeedBackProvider>
 
       <Header />
-  <div className="container">
+  <div className="feedback-container">
 <Routes>
   <Route
       path='/'

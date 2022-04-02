@@ -8,7 +8,7 @@ const Header = ({text, bgColor, textColor}) => {
     }
     return (
         <header style={headerStyles}>
-        <div className={'container'}>
+        <div className={'feedback-container'}>
             <h2>{text}</h2>
         </div>
         </header>
