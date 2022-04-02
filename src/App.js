@@ -1,38 +1,22 @@
-import React from "react";
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import React from 'react';
+import {BrowserRouter as Router, NavLink, Route, Routes} from 'react-router-dom'
+import FeedbackApp from "./FeedbackApp/FeedbackApp";
+import Spinner from "./FeedbackApp/components/shared/Spinner";
+const App = () => {
+    return (
+        <Router>
+            <div className="navbar bg-neutral text-neutral-content">
+                <NavLink to={'/'} className={({isActive}) => 'btn btn-ghost normal-case text-xl' + (isActive ?' loading' : '')} >Головна</NavLink>
+                <NavLink to={'/feedbackapp'} className={({isActive}) => 'btn btn-ghost normal-case text-xl' + (isActive ?' loading' : '')} >Зворотній зв'язок </NavLink>
+            </div>
 
-import Header from "./components/Header";
-import FeedbackList from "./components/FeedbackList";
-import FeedbackStats from "./components/FeedbackStats";
-import FeedbackForm from "./components/FeedbackForm";
-import AboutPage from "./pages/AboutPage";
-import AboutIconLink from "./components/AboutIconLink";
-import {FeedBackProvider} from "./context/FeedbackContext";
-
-
-
-function App(){
-
-    return <FeedBackProvider>
-      <Router>
-      <Header />
-  <div className="container">
-<Routes>
-  <Route
-      path='/'
-      element={
-    <>
-      <FeedbackForm />
-      <FeedbackStats />
-      <FeedbackList />
-    </>
-  } />
-    <Route path='/about' element={<AboutPage /> } />
-</Routes>
-    <AboutIconLink />
-  </div>
-  </Router>
-    </FeedBackProvider>
-}
-
+            <Routes>
+                <Route path='/' element={<>
+                    <Spinner />
+                </> } />
+                <Route path='/feedbackapp/*' element={<FeedbackApp /> } />
+            </Routes>
+        </Router>
+    );
+};
 export default App;
