@@ -10,6 +10,7 @@ const AboutPage = () => {
             <p>Зворотній зв'язок</p>
             <p>Версія: 1.0.0</p>
             <Link to='/' > На головну</Link>
+                <Link to='/feedbackapp' > До Зворотнього зв'язку</Link>
             </div>
 
         </Card>
