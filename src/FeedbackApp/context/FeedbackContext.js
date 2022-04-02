@@ -60,7 +60,7 @@ export const FeedBackProvider = ({children}) => {
         getData(`${googleURL}?action=PUT&id=${id}&rating=${updItem.rating}&text=${updItem.text}`).then(data => {
 
             setFeedback(data.feedback.reverse())
-            setIsLoading(true)
+            setIsLoading(false)
         })
     }
 

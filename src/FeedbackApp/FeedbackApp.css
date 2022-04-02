@@ -18,13 +18,13 @@ ul {
     list-style: none;
 }
 
-.container {
+.feedback-container {
     max-width: 768px;
     margin: auto;
     padding: 0 20px;
 }
 
-header.my-header {
+header {
     height: 70px;
     width: 100%;
     display: flex;
@@ -33,7 +33,7 @@ header.my-header {
     margin-bottom: 30px;
 }
 
-.card {
+.feedback-card {
     background-color: #fff;
     color: #333;
     border-radius: 15px;
@@ -42,12 +42,12 @@ header.my-header {
     position: relative;
 }
 
-.card.reverse {
+.feedback-card.reverse {
     background-color: rgba(0, 0, 0, 0.4);
     color: #fff;
 }
 
-.card h2 {
+.feedback-card h2 {
     font-size: 22px;
     font-weight: 600;
     text-align: center;
@@ -101,7 +101,7 @@ header.my-header {
     color: #fff;
 }
 
-.input-group {
+.feedback-input-group {
     display: flex;
     flex-direction: row;
     border: 1px solid #ccc;
@@ -146,7 +146,7 @@ input:focus {
     right: 40px;
 }
 
-.btn {
+.feedback-btn {
     color: #fff;
     border: 0;
     border-radius: 8px;
@@ -156,26 +156,26 @@ input:focus {
     cursor: pointer;
 }
 
-.btn-primary {
+.feedback-btn-primary {
     background-color: #202142;
 }
 
-.btn-secondary {
+.feedback-btn-secondary {
     background: #ff6a95;
 }
 
-.btn:hover {
+.feedback-btn:hover {
     transform: scale(0.98);
     opacity: 0.9;
 }
 
-.btn:disabled {
+.feedback-btn:disabled {
     background-color: #cccccc;
     color: #333;
     cursor: auto;
 }
 
-.btn:disabled:hover {
+.feedback-btn:disabled:hover {
     transform: scale(1);
     opacity: 1;
 }
@@ -195,7 +195,7 @@ input:focus {
 }
 
 .about-link a {
-    color: #fff;
+    color: #f0f0f0;
 }
 
 .about-link a:hover {
