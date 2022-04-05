@@ -11,5 +11,12 @@
 
   .basement {
     @apply footer mt-auto items-center p-4 bg-neutral text-neutral-content flex justify-between;
+    .copyright {
+      @apply items-center grid-flow-col;
+    }
+
+    .socialicons {
+      @apply grid-flow-col gap-4 place-self-center justify-self-end;
+    }
   }
 }

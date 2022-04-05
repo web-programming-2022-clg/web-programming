@@ -10,10 +10,10 @@ const MainPage = () => {
                 <div className={styles.content}><Spinner/></div>
             </div>
             <footer className={styles.basement}>
-                <div className="items-center grid-flow-col">
+                <div className={styles.copyright}>
                     <p>Copyright © 2022 - All right reserved</p>
                 </div>
-                <div className="grid-flow-col gap-4 place-self-center justify-self-end">
+                <div className={styles.socialicons}>
                    <SiTwitter size={32}/>
                    <SiYoutube size={32}/>
                     <SiFacebook size={32}/>
