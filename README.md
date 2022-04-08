@@ -1,5 +1,7 @@
 # Web-програмування
 
+Лекційні матеріали з дисципліни "Web-програмування"
+
 Google script for "server" [here](https://gist.github.com/Volodymyr-Kovdrysh/b4794e9d25e84eedf663cc7fa3b2bd0b)
 
 
