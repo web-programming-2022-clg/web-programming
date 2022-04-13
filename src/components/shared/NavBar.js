@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
+import React, {useContext} from 'react';
 import {NavLink} from "react-router-dom";
 import {ImEnter, ImExit} from "react-icons/im";
+import AuthContext from "../../Auth/context/AuthContext";
 
 const NavBar = () => {
-    const [login, setLogin] = useState(false)
+
+    const {login} = useContext(AuthContext)
+
     return (
         <div className="navbar bg-neutral text-neutral-content flex justify-between">
             <div className="flex justify-start">

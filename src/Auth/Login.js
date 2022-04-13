@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import AuthContext from "./context/AuthContext";
 
 
-const Login = ({login}) => {
+const Login = () => {
+
+    const {setLogin} = useContext(AuthContext)
+
     return (
 
         <div className="card w-96 bg-neutral text-neutral-content">
@@ -10,7 +14,7 @@ const Login = ({login}) => {
                 <p>We are using cookies for no reason.</p>
                 <div className="card-actions justify-end">
                     <button className="btn btn-primary" onClick={()=>{
-                        login(true)
+                        setLogin(true)
                     }}>Login</button>
                 </div>
 

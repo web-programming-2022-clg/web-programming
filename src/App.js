@@ -1,21 +1,23 @@
-import React, {useState} from 'react';
-import {BrowserRouter as Router, NavLink, Route, Routes} from 'react-router-dom'
+import React from 'react';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import FeedbackApp from "./FeedbackApp/FeedbackApp";
 import MainPage from "./MainPage/MainPage";
-import {ImEnter, ImExit} from "react-icons/im";
+
 import NavBar from "./components/shared/NavBar";
+import {AuthProvider} from "./Auth/context/AuthContext";
 
 const App = () => {
-    const [login, setLogin] = useState(false)
     return (
+        <AuthProvider>
         <Router>
             <NavBar />
 
             <Routes>
-                <Route path='*' element={<MainPage login={setLogin} islogin={login} /> } />
+                <Route path='*' element={<MainPage /> } />
                 <Route path='/feedbackapp/*' element={<FeedbackApp /> } />
             </Routes>
         </Router>
+        </AuthProvider>
     );
 };
 export default App;
