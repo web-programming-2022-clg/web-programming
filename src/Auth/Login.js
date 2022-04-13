@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import AuthContext from "./context/AuthContext";
-
+import './styles/Login.modules.scss'
 
 const Login = () => {
 
@@ -18,12 +18,13 @@ const Login = () => {
 
     return (
 
-        <div className="card w-96 bg-neutral text-neutral-content">
-            <div className="card-body items-center text-center">
-                <h2 className="card-title">Cookies!</h2>
+        <div className="logincard">
+            <div>
+                <h2>Cookies!</h2>
                 <p>We are using cookies for no reason.</p>
-                <div className="flex justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-20 h-20 text-blue-600" fill="none"
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
                          viewBox="0 0 24 24"
                          stroke="currentColor">
                         <path d="M12 14l9-5-9-5-9 5 9 5z"/>
@@ -37,29 +38,33 @@ const Login = () => {
                 </div>
 
                 <form onSubmit={handleSubmit} >
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text text-blue-300">Email</span>
+                    <div>
+                        <label>
+                            <span>Email</span>
                         </label>
                         <input
                             type="text"
                             placeholder="surname.name.clg@chnu.edu.ua"
                             autoComplete="on"
                             name="email"
-                            className="input input-bordered text-primary"
                             value={email}
                             onChange={(e)=>{
                                 setEmail(e.target.value)}}
                         />
-                        <label className="label">
-                            <span className="label-text text-blue-300">Password</span>
+                        <label>
+                            <span>Password</span>
                         </label>
-                        <input type="password" placeholder="password" name="pass" autoComplete="on" className="input input-bordered text-primary"/>
+                        <input
+                            type="password"
+                            placeholder="password"
+                            name="pass"
+                            autoComplete="on"
+                        />
                     </div>
-                    <div className="mt-4">
-                        <div className="flex items-baseline justify-between">
-                            <button className="btn btn-primary" type="submit">Login</button>
-                            <button onClick={(e)=>{e.preventDefault()}} className="text-sm text-blue-300 hover:underline">Forgot password?</button>
+                    <div>
+                        <div>
+                            <button type="submit">Login</button>
+                            <button onClick={(e)=>{e.preventDefault()}}>Forgot password?</button>
                         </div>
                     </div>
                 </form>
