@@ -7,7 +7,6 @@ const FeedbackContext = createContext()
 // const jsonUrl = 'https://gist.githubusercontent.com/Volodymyr-Kovdrysh/368f472d3de21193171cdce3498939d5/raw/f3af065a83e7a8660a81f1e7f6f960e287bcd855/data.json'
 
 export const FeedBackProvider = ({children}) => {
-    console.log('process.env.REACT_APP_GOOGLE_SCRIPT_ID', process.env.REACT_APP_GOOGLE_SCRIPT_ID)
     const [isLoading, setIsLoading] = useState(true)
     const [feedback, setFeedback] = useState([])
 
