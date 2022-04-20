@@ -3,7 +3,7 @@ import GitContext from "../../context/GitContext";
 
 const UserSearch = () => {
     const [text, setText] = useState('')
-    const {users} = useContext(GitContext)
+    const {users, searchUsers} = useContext(GitContext)
     const handleChange = (e) => setText(e.target.value)
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -11,7 +11,7 @@ const UserSearch = () => {
         if(text === ''){
             alert('Будь ласка, щось введіть')
         }else {
-            // TODO search users
+            searchUsers(text)
             setText('')
         }
     }
