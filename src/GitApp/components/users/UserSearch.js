@@ -3,7 +3,7 @@ import GitContext from "../../context/GitContext";
 
 const UserSearch = () => {
     const [text, setText] = useState('')
-    const {users, searchUsers} = useContext(GitContext)
+    const {users, searchUsers, clearUsers} = useContext(GitContext)
     const handleChange = (e) => setText(e.target.value)
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -36,7 +36,7 @@ const UserSearch = () => {
             </div>
             {users.length > 0 && (
                 <div>
-                    <buttun className="btn btn-ghost btn-lg">
+                    <buttun onClick={clearUsers} className="btn btn-ghost btn-lg">
                         Очистити
                     </buttun>
                 </div>
