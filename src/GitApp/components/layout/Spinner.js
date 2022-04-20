@@ -2,7 +2,7 @@ import React from 'react';
 import spinner from "../assets/spinner.gif"
 
 const Spinner = () => {
-    return <div className="w-100 mt-20">
+    return <div className="w-100 mt-20 h-screen">
         <img
             src={spinner}
             alt={'Loading...'}
